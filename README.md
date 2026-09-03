@@ -1,61 +1,61 @@
-# 📊 Retail Sales Performance & Profitability Analytics Dashboard
+#  Retail Sales Performance & Profitability Analytics Dashboard
 
-## 📌 Project Overview
-This project presents an end-to-end data analytics solution built for a multi-store retail business. Analyzing a dataset of over 120,000 transaction records (2023–2026), the project consolidates historical sales data to evaluate overall financial health, identify core revenue drivers, and track Year-over-Year (YoY) performance across regional store locations.
+##  Project Overview
+This project delivers an end-to-end business intelligence solution built for a multi-store retail company. Using a dataset of over 120,000 transaction records (2023–2026), the dashboard evaluates Year-to-Date (YTD Aug 2026) financial health, identifies core revenue drivers, and tracks store performance across 8 regional locations.
 
-![Executive Dashboard](dashboard_preview.png)
+![Executive Dashboard - YTD 2026](dashboard_preview.png)
 
 ---
 
-## 🎯 Business Requirements & Impact
+##  Business Requirements & Impact
 
 | Business Requirement | Technical Solution | Business Impact & Owner |
 | :--- | :--- | :--- |
-| **Centralize Regional Data:** Combine multi-year sales transactions across all store locations into a unified reporting model. | Modeled a relational database in **PostgreSQL** and built a clean **Star Schema** in Power BI. | Provides a single source of truth across all regional stores. |
-| **Track Financial Performance:** Monitor overall revenue, profit, margins, and growth trajectories. | Created custom **DAX measures** (`Total Revenue`, `Total Profit`, `Profit Margin %`, `YoY Growth %`). | **Execs / Finance:** Delivers real-time visibility into net profitability (**42.06%** margin) and annual growth (**19.74%**). |
-| **Identify Core Revenue Drivers:** Pinpoint top-performing product categories and high-growth stores. | Designed interactive visuals with cross-filtering (Dual-axis trend chart & Donut Chart). | **Sales / Marketing:** Highlighted **Electronics** as the primary growth engine (**72.16%** of total revenue). |
+| **Centralize Regional Sales:** Consolidate multi-year transaction data into a clean analytical architecture. | Modeled a relational database in **PostgreSQL** and established a **Star Schema** in Power BI. | Provides a single source of truth across all 8 regional stores. |
+| **Track YTD Financial KPIs:** Monitor revenue, profit margins, and year-over-year growth trajectories. | Created custom **DAX measures** (`Total Revenue`, `Total Profit`, `Profit Margin %`, `YoY Growth %`). | **Execs / Finance:** Enables real-time visibility into overall profitability (**42.09%** margin). |
+| **Identify Category Drivers:** Evaluate sales distribution across product categories to optimize strategy. | Built interactive visuals with cross-filtering (Dual-axis trend chart & Donut Chart). | **Sales / Marketing:** Highlighted **Electronics** as the primary driver (**71.97%** of revenue). |
 
 ---
 
-## 🛠️ Step-by-Step Implementation
+##  Step-by-Step Implementation
 
 ### Step 1: Data Extraction & Transformation (PostgreSQL)
-* Cleaned and processed multi-year transaction tables (`sales`, `products`, `stores`).
-* Wrote optimized SQL queries using `JOIN`s, `GROUP BY` aggregations, CTEs, and Window Functions (`DENSE_RANK()`, `LAG()`) to aggregate revenue trends prior to Power BI ingestion.
+* Processed raw dataset tables (`sales`, `products`, `stores`).
+* Wrote optimized SQL queries using `JOIN`s, `GROUP BY` aggregations, CTEs, and Window Functions (`DENSE_RANK()`, `LAG()`) to analyze sales trends prior to dashboard ingestion.
 
 ### Step 2: Data Modeling (Power BI)
-* Implemented a **Star Schema** architecture linking the central `sales` fact table to dimension tables (`stores`, `products`).
-* Built a custom DAX `Calendar` dimension table to enable accurate Time Intelligence comparisons (`SAMEPERIODLASTYEAR`).
+* Implemented a clean **Star Schema** linking the central `sales` fact table to dimension tables (`stores`, `products`).
+* Developed a dedicated DAX `Calendar` dimension table for Time Intelligence analysis (`SAMEPERIODLASTYEAR`).
 
-### Step 3: Key Financial Metrics (DAX Calculations)
-* **Total Revenue:** **$98.01M** — Evaluates cumulative transaction value across the entire period.
-* **Total Profit:** **$41.22M** — Tracks net bottom-line earnings.
-* **Profit Margin %:** **42.06%** — Real-time margin efficiency (`Total Profit / Total Revenue`).
-* **YoY Growth %:** **19.74%** — Year-over-year revenue growth trajectory.
+### Step 3: Key Financial Metrics (YTD Aug 2026 DAX Measures)
+* **Total Revenue:** **$16.16M** — Cumulative YTD revenue generated up to August 2026.
+* **Total Profit:** **$6.80M** — YTD net profit performance.
+* **Profit Margin %:** **42.09%** — High margin efficiency maintained across all stores (`Total Profit / Total Revenue`).
+* **YoY Growth %:** **-0.40%** — Year-over-year performance comparison against the equivalent Jan–Aug period of 2025.
 
 ### Step 4: Executive Dashboard Design
-* Designed a single-page executive interface with high-contrast KPI cards, a dual-axis Line & Clustered Column chart (Monthly Revenue + YoY Growth %), category share distribution, and a detailed store-level matrix.
+* Designed a streamlined single-page interface featuring KPI cards, a dual-axis Line & Clustered Column chart (Monthly Revenue + YoY Growth %), category share breakdown, and a store performance matrix.
 
 ---
 
-## 💡 Key Business Insights
+##  Key Business Insights
 
-1. **Category Heavyweight:** **Electronics** accounts for **72.16%** of total revenue, proving to be the primary business engine. Marketing and promotional efforts should continue prioritizing tech campaigns.
-2. **Strong Profitability:** The business maintains a healthy **42.06% Profit Margin** and an impressive **19.74% YoY Growth rate**, reflecting solid operational efficiency across all regions.
-3. **Balanced Regional Distribution:** Sales are evenly distributed across all 8 regional stores (averaging **~$12.06M to $12.36M** per location), showing consistent nationwide market penetration.
+1. **Category Dominance:** **Electronics** accounts for **71.97%** ($11.63M) of total YTD revenue, followed by **Furniture** (**23.53%**) and **Stationery** (**4.50%**).
+2. **Stable Profit Margins:** The network operates at a solid **42.09% Profit Margin**, demonstrating strong pricing strategies and cost management across all product groups.
+3. **Equally Distributed Store Sales:** Revenue is well-balanced across all 8 store locations, ranging from **$1.95M** (*Magazin Vest*) to **$2.10M** (*Magazin Nord*), showing consistent brand demand across all regions.
 
 ---
 
-## 🎯 Strategic Recommendations
+##  Strategic Recommendations
 
 | Action / Recommendation | Target Team (Owner) | Expected Business Impact | Metric to Track (KPI) |
 | :--- | :--- | :--- | :--- |
-| **Cross-Selling Strategies:** Bundle high-margin items (*Stationery / Furniture*) with core *Electronics* products. | **Marketing & Retail Sales** | Increases average transaction size while boosting secondary category sales (**4.46%** share). | *Average Order Value (AOV)* |
-| **Regional Campaign Alignment:** Target promotional funds toward top-performing regions like *Magazin Nord* ($12.36M) during seasonal peaks. | **Regional Operations** | Capitalizes on high-converting regional customer bases during key sales cycles. | *YoY Growth % per Region* |
+| **Cross-Selling Strategies:** Create bundles pairing high-demand *Electronics* with higher-margin *Stationery / Office* supplies. | **Marketing & Retail Sales** | Boosts basket size and increases revenue in underperforming categories. | *Average Order Value (AOV)* |
+| **Regional Sales Optimization:** Target marketing efforts toward stores like *Magazin Vest* ($1.95M) to bring performance closer to top stores (*Magazin Nord*, $2.10M). | **Regional Operations** | Balances revenue performance across all physical locations. | *Revenue per Store* |
 
 ---
 
 ## 📁 Repository Structure
-* `schema_and_queries.sql` – PostgreSQL scripts (table definitions, joins, CTEs, and window functions).
+* `schema_and_queries.sql` – PostgreSQL scripts (table schemas, CTEs, window functions, and joins).
 * `Retail_Analytics_Dashboard.pbix` – Interactive Power BI Desktop report file.
-* `dashboard_preview.png` – High-resolution preview image of the Executive Dashboard.
+* `dashboard_preview.png` – High-resolution preview image of the Executive Dashboard (YTD 2026).
